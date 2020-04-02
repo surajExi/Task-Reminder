@@ -62,6 +62,21 @@ Task.updateTaskStatus = function (status, result) {
         });
 };
 
+
+Task.updateTask = function (task, result) {
+    console.log(task);
+    sql.CONNECTION.query("UPDATE tbl_task SET task = ?,taskdetails=? WHERE id = ?",
+        [task.task,task.taskdetails, task.id], function (err, res) {
+            if (err) {
+                console.log("error: ", err);
+                result(null, err);
+            }
+            else {
+                result(null, res);
+            }
+        });
+};
+
 Task.remove = function (taskID, result) {
     sql.CONNECTION.query("UPDATE tbl_task SET isdeleted = ? WHERE id = ?", [true, taskID], function (err, res) {
         if (err) {
@@ -76,7 +91,7 @@ Task.remove = function (taskID, result) {
 
 
 Task.getAllTasksForUser = function (userID, result) {
-    sql.CONNECTION.query("Select * from tbl_task WHERE userid=?", [userID], function (err, res) {
+    sql.CONNECTION.query("Select * from tbl_task WHERE userid=? AND isdeleted IS NULL", [userID], function (err, res) {
 
         if (err) {
             console.log("error: ", err);

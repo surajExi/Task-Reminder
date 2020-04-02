@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend"
+    "\\backend",
+    "\\backend\\configurations",
+    "\\backend\\services"
   ],
-  "SelectedNode": "\\backend\\package.json",
+  "SelectedNode": "\\backend\\swagger.json",
   "PreviewInSolutionExplorer": false
 }

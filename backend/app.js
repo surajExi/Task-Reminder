@@ -8,6 +8,15 @@ var swaggerUi = require('swagger-ui-express'),
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+const corsConfig = function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    next();
+};
+app.use(corsConfig);
+
 app.get('/api', function (req, res) {
 	res.status(200).send('API works.');
 });
