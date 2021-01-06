@@ -4,7 +4,7 @@
   "description": "Includes all the packages required for the application",
   "main": "server.js",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.3",
     "core-js": "^2.6.5",
